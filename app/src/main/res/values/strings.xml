@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">彩票掌中宝</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 接口允许访问的AppKey -->
+    <string name="appkey" translatable="false">255f9e656ac2798a7e7e0fb2fa2a57a4</string>
+
+    <!-- 讯息页上方ImageView跳转后的单文本页面中的内容 -->
+    <string name="using_help">“彩票掌中宝”可以为您提供最近的彩票资讯，使您可以轻松查询最近和往期的各类彩票开奖结果。此外，应用内有备忘录功能，您可将备忘事宜随时随地地添加至您的备忘录中。祝您使用愉快，也祝您身体健康，万事如意。</string>
+
+    <!-- 讯息页的中部三个消息 -->
+    <string name="info_news_1">“不忘初心 牢记使命”首届全国福利彩票系统青年演讲比赛决赛暨颁奖仪式在北京圆满收官</string>
+    <string name="info_news_2">“福彩圆梦 捕获你的幸运锦鲤”活动启动</string>
+    <string name="info_news_3">东营福彩圆社区残疾人的“微心愿”</string>
+
+    <string name="info_news_1_url" translatable="false">http://www.cwl.gov.cn/c/2019-01-29/448765.shtml</string>
+    <string name="info_news_2_url" translatable="false">http://www.cwl.gov.cn/c/2019-05-21/452983.shtml</string>
+    <string name="info_news_3_url" translatable="false">http://www.cwl.gov.cn/c/2019-05-21/452993.shtml</string>
+
+    <!-- 讯息页中部三个心理学链接 -->
+    <string name="info_ideas_1">买彩切记</string>
+    <string name="info_ideas_2">为什么觉得自己选号容易中奖？</string>
+    <string name="info_ideas_3">中大奖会影响人们的幸福感吗？</string>
+
+    <string name="info_ideas_1_url" translatable="false">https://jingyan.baidu.com/article/49711c6190c62afa441b7c18.html</string>
+    <string name="info_ideas_2_url" translatable="false">http://www.china-lottery.net/news/375488/s.html</string>
+    <string name="info_ideas_3_url" translatable="false">http://jandan.net/2017/09/02/lottery-affects.html</string>
+
+
+</resources>

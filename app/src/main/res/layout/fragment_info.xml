@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lotterydemo.Fragment.InfoFragment"
+    android:background="@color/normalBackground">
+
+    <!-- 大图片宣传区域 -->
+    <ImageView
+        android:id="@+id/fragment_info_topimg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <!-- 最新消息板块标题 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/view_border">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/info_news_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="最新讯息"
+            android:textColor="@color/bigTheme"/>
+
+
+    </LinearLayout>
+
+    <!-- 最新消息板块标题 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/view_border">
+
+        <TextView
+            android:id="@+id/fragment_info_news_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_news_1"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end"  />
+
+        <TextView
+            android:id="@+id/fragment_info_news_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_news_2"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end"  />
+
+        <TextView
+            android:id="@+id/fragment_info_news_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_news_3"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <!-- 最新消息板块标题 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/view_border">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/info_ideas_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="彩票心理学"
+            android:textColor="@color/bigTheme"/>
+
+
+    </LinearLayout>
+
+    <!-- 彩票心理学板块标题 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/view_border">
+
+        <TextView
+            android:id="@+id/fragment_info_ideas_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_ideas_1"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end"  />
+
+        <TextView
+            android:id="@+id/fragment_info_ideas_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_ideas_2"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end"  />
+
+        <TextView
+            android:id="@+id/fragment_info_ideas_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/info_ideas_3"
+
+            android:maxEms="20"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</LinearLayout>

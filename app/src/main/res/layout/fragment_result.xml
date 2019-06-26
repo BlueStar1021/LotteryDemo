@@ -1,0 +1,261 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    tools:context="com.example.lotterydemo.Fragment.ResultFragment"
+    android:background="@drawable/bg_theme_1">
+
+    <!-- 双色球板块 -->
+    <LinearLayout
+        android:id="@+id/fragment_result_ssq"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_block_5"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/fragment_result_ssqname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/lightTextColor"
+            android:textSize="25dp"
+            android:text="双色球"/>
+
+        <TextView
+            android:layout_below="@id/fragment_result_ssqname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/lightTextColor"
+            android:textSize="15dp"
+            android:text="每周二、四、日开奖"/>
+
+    </LinearLayout>
+
+    <!-- 第二行 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <!-- 超级大乐透板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_dlt"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:background="@drawable/bg_block_3"
+            android:layout_marginRight="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_dltname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="25dp"
+                android:text="超级大乐透"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_dltname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="15dp"
+                android:text="每周一、三、六开奖"/>
+
+        </LinearLayout>
+
+        <!-- 七乐彩板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_qlc"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_block_1"
+            android:layout_marginLeft="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_qlcname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/darkTextColor"
+                android:textSize="25dp"
+                android:text="七乐彩"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_qlcname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/darkTextColor"
+                android:textSize="15dp"
+                android:text="每周一、三、五开奖"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 第三行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <!-- 福彩3D板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_fcsd"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:background="@drawable/bg_block_2"
+            android:layout_marginRight="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_fcsdname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/darkTextColor"
+                android:textSize="25dp"
+                android:text="福彩3D"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_fcsdname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/darkTextColor"
+                android:textSize="15dp"
+                android:text="每日开奖"/>
+
+        </LinearLayout>
+
+        <!-- 七星彩板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_qxc"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_block_4"
+            android:layout_marginLeft="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_qxcname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="25dp"
+                android:text="七星彩"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_qxcname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="15dp"
+                android:text="每周二、五、日开奖"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 第四行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <!-- 排列3板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_pls"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:background="@drawable/bg_block_4"
+            android:layout_marginRight="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_plsname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="25dp"
+                android:text="排列三"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_plsname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="15dp"
+                android:text="每日开奖"/>
+
+        </LinearLayout>
+
+        <!-- 排列5板块 -->
+        <LinearLayout
+            android:id="@+id/fragment_result_plw"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_block_3"
+            android:layout_marginLeft="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fragment_result_plwname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="25dp"
+                android:text="排列五"/>
+
+            <TextView
+                android:layout_below="@id/fragment_result_plwname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/lightTextColor"
+                android:textSize="15dp"
+                android:text="每日开奖"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
