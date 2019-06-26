@@ -90,7 +90,7 @@ public class FCSDResultActivity extends NetworkWatcherActivity implements JsonAc
         try {
             JSONObject outerJsonObject = new JSONObject(responseData);
             JSONObject innerJsonObject = new JSONObject(outerJsonObject.getString("result"));
-            TreeMap<String,String> map = new TreeMap<>();
+            TreeMap<String,Object> map = new TreeMap<>();
             map.put("no", innerJsonObject.getString("lottery_no"));
             map.put("res", innerJsonObject.getString("lottery_res"));
             map.put("date", innerJsonObject.getString("lottery_date"));
@@ -106,17 +106,17 @@ public class FCSDResultActivity extends NetworkWatcherActivity implements JsonAc
     }
 
     @Override
-    public void showResponseOnUI(final TreeMap<String, String> map) {
+    public void showResponseOnUI(final TreeMap<String, Object> map) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                no.setText(map.get("no"));
-                date.setText(map.get("date"));
-                exdate.setText(map.get("exdate"));
-                saleAmount.setText(map.get("sale_amount"));
-                poolAmount.setText(map.get("pool_amount"));
+                no.setText((String)map.get("no"));
+                date.setText((String)map.get("date"));
+                exdate.setText((String)map.get("exdate"));
+                saleAmount.setText((String)map.get("sale_amount"));
+                poolAmount.setText((String)map.get("pool_amount"));
 
-                FCSDSet fcsdSet = new FCSDSet(map.get("res"));
+                FCSDSet fcsdSet = new FCSDSet((String)map.get("res"));
 
                 ball_1.setText(String.valueOf(fcsdSet.getBalls().get(0)));
                 ball_2.setText(String.valueOf(fcsdSet.getBalls().get(1)));

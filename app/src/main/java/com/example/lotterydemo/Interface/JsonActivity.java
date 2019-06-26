@@ -28,7 +28,7 @@ public interface JsonActivity {
     * */
 
     //更新渲染UI
-    public void showResponseOnUI(TreeMap<String,String> map);
+    public void showResponseOnUI(TreeMap<String,Object> map);
     /*
     *
     * 参数介绍:

@@ -1,5 +1,6 @@
 package com.example.lotterydemo.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lotterydemo.Interface.JsonActivity;
+import com.example.lotterydemo.JavaClass.DLTSet;
 import com.example.lotterydemo.JavaClass.NetworkWatcherActivity;
-import com.example.lotterydemo.JavaClass.PLSSet;
 import com.example.lotterydemo.R;
 
 import org.json.JSONException;
@@ -21,45 +22,55 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class PLSResultActivity extends NetworkWatcherActivity implements JsonActivity {
+public class DLTDetailActivity extends NetworkWatcherActivity implements JsonActivity {
+
+    String lottery_no;
 
     Button btnRet;
 
     TextView no,date,exdate,saleAmount,poolAmount;
-    TextView ball_1,ball_2,ball_3;
+    TextView pro_1,pro_2,pro_3,pro_4,pro_5,post_1,post_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plsresult);
+        setContentView(R.layout.activity_dltdetail);
 
-        btnRet = (Button)findViewById(R.id.activity_plsresult_return);
+        btnRet = (Button)findViewById(R.id.activity_dltdetail_return);
 
-        no = (TextView)findViewById(R.id.activity_plsresult_lottery_no);
-        date = (TextView)findViewById(R.id.activity_plsresult_lottery_date);
-        exdate = (TextView)findViewById(R.id.activity_plsresult_lottery_exdate);
-        saleAmount = (TextView)findViewById(R.id.activity_plsresult_lottery_sale_amount);
-        poolAmount = (TextView)findViewById(R.id.activity_plsresult_lottery_pool_amount);
+        no = (TextView)findViewById(R.id.activity_dltdetail_lottery_no);
+        date = (TextView)findViewById(R.id.activity_dltdetail_lottery_date);
+        exdate = (TextView)findViewById(R.id.activity_dltdetail_lottery_exdate);
+        saleAmount = (TextView)findViewById(R.id.activity_dltdetail_lottery_sale_amount);
+        poolAmount = (TextView)findViewById(R.id.activity_dltdetail_lottery_pool_amount);
 
-        ball_1 = (TextView)findViewById(R.id.activity_plsresult_ball_1);
-        ball_2 = (TextView)findViewById(R.id.activity_plsresult_ball_2);
-        ball_3 = (TextView)findViewById(R.id.activity_plsresult_ball_3);
+        pro_1 = (TextView)findViewById(R.id.activity_dltdetail_pro_1);
+        pro_2 = (TextView)findViewById(R.id.activity_dltdetail_pro_2);
+        pro_3 = (TextView)findViewById(R.id.activity_dltdetail_pro_3);
+        pro_4 = (TextView)findViewById(R.id.activity_dltdetail_pro_4);
+        pro_5 = (TextView)findViewById(R.id.activity_dltdetail_pro_5);
+
+        post_1 = (TextView)findViewById(R.id.activity_dltdetail_post_1);
+        post_2 = (TextView)findViewById(R.id.activity_dltdetail_post_2);
+
+        Intent intent = getIntent();
+        lottery_no = intent.getStringExtra("no");
 
         //返回事件监听
         btnRet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PLSResultActivity.super.finish();
+                DLTDetailActivity.super.finish();
             }
         });
 
         //检查网络
-        if(isNetworkAvailable(PLSResultActivity.this) == false){
+        if(isNetworkAvailable(DLTDetailActivity.this) == false){
             //网络不可用
             Toast.makeText(this, "网络状况不良，请连接数据后重试", Toast.LENGTH_SHORT).show();
         }else{
             //网络可用
-            getJson("http://apis.juhe.cn/lottery/query?key=" + getResources().getString(R.string.appkey) + "&lottery_id=pls");
+            getJson("http://apis.juhe.cn/lottery/query?key=" + getResources().getString(R.string.appkey) + "&lottery_id=ssq&lottery_no=" + lottery_no);
         }
     }
 
@@ -106,22 +117,27 @@ public class PLSResultActivity extends NetworkWatcherActivity implements JsonAct
 
     @Override
     public void showResponseOnUI(final TreeMap<String, Object> map) {
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                no.setText((String)map.get("no"));
+                no.setText("第" + (String)map.get("no") + "期开奖");
                 date.setText((String)map.get("date"));
                 exdate.setText((String)map.get("exdate"));
                 saleAmount.setText((String)map.get("sale_amount"));
                 poolAmount.setText((String)map.get("pool_amount"));
 
-                PLSSet plsSet = new PLSSet((String)map.get("res"));
+                DLTSet dltSet = new DLTSet((String)map.get("res"));
 
-                ball_1.setText(String.valueOf(plsSet.getBalls().get(0)));
-                ball_2.setText(String.valueOf(plsSet.getBalls().get(1)));
-                ball_3.setText(String.valueOf(plsSet.getBalls().get(2)));
-
+                pro_1.setText(String.valueOf(dltSet.getProzone().get(0)));
+                pro_2.setText(String.valueOf(dltSet.getProzone().get(1)));
+                pro_3.setText(String.valueOf(dltSet.getProzone().get(2)));
+                pro_4.setText(String.valueOf(dltSet.getProzone().get(3)));
+                pro_5.setText(String.valueOf(dltSet.getProzone().get(4)));
+                post_1.setText(String.valueOf(dltSet.getPostzone().get(0)));
+                post_2.setText(String.valueOf(dltSet.getPostzone().get(1)));
             }
         });
+
     }
 }

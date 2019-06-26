@@ -99,7 +99,7 @@ public class SSQResultActivity extends NetworkWatcherActivity implements JsonAct
         try {
             JSONObject outerJsonObject = new JSONObject(responseData);
             JSONObject innerJsonObject = new JSONObject(outerJsonObject.getString("result"));
-            TreeMap<String,String> map = new TreeMap<>();
+            TreeMap<String,Object> map = new TreeMap<>();
             map.put("no", innerJsonObject.getString("lottery_no"));
             map.put("res", innerJsonObject.getString("lottery_res"));
             map.put("date", innerJsonObject.getString("lottery_date"));
@@ -115,18 +115,18 @@ public class SSQResultActivity extends NetworkWatcherActivity implements JsonAct
     }
 
     @Override
-    public void showResponseOnUI(final TreeMap<String,String> map) {
+    public void showResponseOnUI(final TreeMap<String,Object> map) {
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                no.setText(map.get("no"));
-                date.setText(map.get("date"));
-                exdate.setText(map.get("exdate"));
-                saleAmount.setText(map.get("sale_amount"));
-                poolAmount.setText(map.get("pool_amount"));
+                no.setText((String)map.get("no"));
+                date.setText((String)map.get("date"));
+                exdate.setText((String)map.get("exdate"));
+                saleAmount.setText((String)map.get("sale_amount"));
+                poolAmount.setText((String)map.get("pool_amount"));
 
-                SSQSet ssqSet = new SSQSet(map.get("res"));
+                SSQSet ssqSet = new SSQSet((String)map.get("res"));
 
                 red_1.setText(String.valueOf(ssqSet.getRed().get(0)));
                 red_2.setText(String.valueOf(ssqSet.getRed().get(1)));

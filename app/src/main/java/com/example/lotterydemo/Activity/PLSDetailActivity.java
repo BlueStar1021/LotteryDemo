@@ -1,5 +1,6 @@
 package com.example.lotterydemo.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class PLSResultActivity extends NetworkWatcherActivity implements JsonActivity {
+public class PLSDetailActivity extends NetworkWatcherActivity implements JsonActivity {
+
+    String lottery_no;
 
     Button btnRet;
 
@@ -31,35 +34,38 @@ public class PLSResultActivity extends NetworkWatcherActivity implements JsonAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plsresult);
+        setContentView(R.layout.activity_plsdetail);
 
-        btnRet = (Button)findViewById(R.id.activity_plsresult_return);
+        btnRet = (Button)findViewById(R.id.activity_plsdetail_return);
 
-        no = (TextView)findViewById(R.id.activity_plsresult_lottery_no);
-        date = (TextView)findViewById(R.id.activity_plsresult_lottery_date);
-        exdate = (TextView)findViewById(R.id.activity_plsresult_lottery_exdate);
-        saleAmount = (TextView)findViewById(R.id.activity_plsresult_lottery_sale_amount);
-        poolAmount = (TextView)findViewById(R.id.activity_plsresult_lottery_pool_amount);
+        no = (TextView)findViewById(R.id.activity_plsdetail_lottery_no);
+        date = (TextView)findViewById(R.id.activity_plsdetail_lottery_date);
+        exdate = (TextView)findViewById(R.id.activity_plsdetail_lottery_exdate);
+        saleAmount = (TextView)findViewById(R.id.activity_plsdetail_lottery_sale_amount);
+        poolAmount = (TextView)findViewById(R.id.activity_plsdetail_lottery_pool_amount);
 
-        ball_1 = (TextView)findViewById(R.id.activity_plsresult_ball_1);
-        ball_2 = (TextView)findViewById(R.id.activity_plsresult_ball_2);
-        ball_3 = (TextView)findViewById(R.id.activity_plsresult_ball_3);
+        ball_1 = (TextView)findViewById(R.id.activity_plsdetail_ball_1);
+        ball_2 = (TextView)findViewById(R.id.activity_plsdetail_ball_2);
+        ball_3 = (TextView)findViewById(R.id.activity_plsdetail_ball_3);
+
+        Intent intent = getIntent();
+        lottery_no = intent.getStringExtra("no");
 
         //返回事件监听
         btnRet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PLSResultActivity.super.finish();
+                PLSDetailActivity.super.finish();
             }
         });
 
         //检查网络
-        if(isNetworkAvailable(PLSResultActivity.this) == false){
+        if(isNetworkAvailable(PLSDetailActivity.this) == false){
             //网络不可用
             Toast.makeText(this, "网络状况不良，请连接数据后重试", Toast.LENGTH_SHORT).show();
         }else{
             //网络可用
-            getJson("http://apis.juhe.cn/lottery/query?key=" + getResources().getString(R.string.appkey) + "&lottery_id=pls");
+            getJson("http://apis.juhe.cn/lottery/query?key=" + getResources().getString(R.string.appkey) + "&lottery_id=pls&lottery_no=" + lottery_no);
         }
     }
 
@@ -109,7 +115,7 @@ public class PLSResultActivity extends NetworkWatcherActivity implements JsonAct
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                no.setText((String)map.get("no"));
+                no.setText("第" + (String)map.get("no") + "期开奖");
                 date.setText((String)map.get("date"));
                 exdate.setText((String)map.get("exdate"));
                 saleAmount.setText((String)map.get("sale_amount"));
