@@ -170,6 +170,9 @@ public class NewsDetailActivity extends AppCompatActivity implements WebPageActi
 
     @Override
     protected void onDestroy() {
+
+        webView.setVisibility(View.GONE);
+
         super.onDestroy();
 
         //释放资源
